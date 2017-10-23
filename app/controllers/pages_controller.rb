@@ -1,10 +1,12 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
+
   def home
-    @user = current_user
+    @user = User.find(current_user[:id])
     if @user.is_admin?
-      @users = User.all
+      redirect_to users_path
     else
-      flash[:notice] = "You're not an admin"
+      redirect_to user_path(:id)
     end
   end
 end
