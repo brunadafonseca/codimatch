@@ -1,14 +1,16 @@
-
-<div class="w3-container" style="border-radius: 10px;">
-<% @users.each do |user| %>
-<div class="col-md-6">
+<a href=# style="color: #000000; text-decoration: none;">Ting go skra</a>
+<div class="w3-container">
+    <hr>
+    <div class="ting" style="text-align: center;"><h1>List of users</h1></div>
+        <% @users.each do |user| %>
+  <div class="col-md-6">
   <%= user.email %>
-</div>
+  </div>
   <% if user.is_admin? %>
   <div class="col-md-4"><b>Admin</b></div>
   <% else %>
   <div class="col-md-4"><b>Student</b></div>
   <% end %>
+  <% end %>
 </div>
 </div>
-<% end %>
