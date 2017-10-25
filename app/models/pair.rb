@@ -2,17 +2,18 @@ class Pair < ApplicationRecord
   has_and_belongs_to_many :users, dependent: :destroy
   belongs_to :day
 
-  def pairstudents(students = [])
+  def pair_students(students = [])
     students.shuffle!
-    n = (students.size)-1
-    a = students.first(3)
-    b = students.last(3)
+    number_of_pairs = (students.size) / 2
+    number_of_days = (students.size) - 1
+    a = students.first(number_of_pairs)
+    b = students.last(number_of_pairs)
 
-    n.times do
-      matches = []
+    number_of_days.times do
+      all_pairs = []
       i = 0
-      while i < (students.size)/2
-        matches.push([a[i], b[i]])
+      while i < number_of_pairs
+        all_pairs.push([a[i], b[i]])
         i += 1
       end
 
