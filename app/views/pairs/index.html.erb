@@ -1,6 +1,10 @@
+
 <% @users.each do | user | %>
 <% if !(user.is_admin?) %>
-  <%= user.email %>
+  <% ting = user.email %>
+  <%= ting %>
+  <% emails = [] %>
+  <% emails.push(user.email)%>
+  <p class="tings"><%= @pair.pairstudents(emails)%></p>
   <% end %>
-  <%= pairstudents(@randomshit)%>
 <% end %>
