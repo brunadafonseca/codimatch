@@ -8,8 +8,4 @@ class User < ApplicationRecord
    def is_admin?
      self.admin?
    end
-
-   def is_student?
-     !self.admin?
-   end
 end
