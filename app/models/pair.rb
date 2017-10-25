@@ -1,5 +1,5 @@
 class Pair < ApplicationRecord
-  has_and_belongs_to-many :users, dependent: :destroy
+  has_and_belongs_to_many :users, dependent: :destroy
   belongs_to :day
 
   def pairstudents(students = [])
