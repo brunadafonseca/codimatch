@@ -1,6 +1,6 @@
 class Pair < ApplicationRecord
-
-  belongs_to :user
+  has_and_belongs_to-many :users, dependent: :destroy
+  belongs_to :day
 
   def pairstudents(students = [])
     students.shuffle!
