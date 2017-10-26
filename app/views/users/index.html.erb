@@ -13,6 +13,19 @@
   <div class="col-md-4"><b>Student <%= link_to "Promote", user, method: :patch%></b></div>
   <% end %>
   <% end %>
-  <%= link_to "Generate Pairs", pairs_path %>
+  <div class="GeneratePairs">
+  <%= link_to "Generate Pairs for #{@users.students.count - 1} Days", pairs_path %>
+  <hr>
+  <div class="DailyGen">
+  <p> Generate Pairs for a specific day</p>
+</br>
+</br>
+  <label for=“date-input”>Date: </label>
+  <input type=“DateTime” id=“date-input”>
+  <button class="SubmitThing"><%=link_to "Submit", pairs_path, method: :post %></button>
+  <hr>
+</div>
+</div>
+
 </div>
 </div>
