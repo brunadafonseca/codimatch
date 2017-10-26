@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = User.find(current_user[:id])
-    @pair = @user.pairs.create
   end
 
   def show
     @user = User.find(current_user[:id])
+    @pair = @user.pairs
   end
 
   def update

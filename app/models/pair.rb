@@ -1,8 +1,7 @@
 class Pair < ApplicationRecord
-  has_and_belongs_to_many :users
-  belongs_to :day
+  has_many :users
 
-  def self.pair_students
+  def generate_pairs
     students = User.all.students.pluck(:email)
     number_of_pairs = (students.size) / 2
     number_of_days = (students.size) - 1
@@ -18,10 +17,8 @@ class Pair < ApplicationRecord
         i += 1
       end
 
-      puts "#{@all_pairs}"
       a.insert(1, b.shift)
       b.insert(-1, a.pop);
     end
-    return @all_pairs
   end
 end
