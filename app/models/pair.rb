@@ -3,7 +3,7 @@ class Pair < ApplicationRecord
 
   def self.generate_pairs
     @users = User.all
-    @students = @users.students.pluck(:email)
+    @students = @users.students.pluck(:id)
     if @students.size.odd?
       @students << ""
     end
@@ -28,4 +28,9 @@ class Pair < ApplicationRecord
     end
     @all_pairs
   end
+
+  scope :student, -> (id) { where(:student_1_id => id)}
+
+  scope :students, -> { where(admin: false) }
+
 end
