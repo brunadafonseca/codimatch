@@ -3,6 +3,8 @@ class PairsController < ApplicationController
     @users = User.all
     @user = User.find(current_user[:id])
     @pairs = Pair.generate_pairs
+    @students = @users.students
+    @i = 0
   end
 
   def create
