@@ -7,13 +7,19 @@ class PairsController < ApplicationController
     @i = 0
   end
 
+  def show
+    @users = User.all
+    @students = @users.students
+    @pair = Pair.find(params[:id])
+  end
+
   def create
     @matches = Pair.generate_pairs
     @matches.each do |pair|
-      @pair = Pair.new
-      @pair.day = Date.new
-      @pair.student_1_id = pair[0]
-      @pair.student_2_id = pair[1]
+      @date = DateTime.new
+      @student_1_id = pair[0]
+      @student_2_id = pair[1]
+      @pair = Pair.create(date: @date, student_1_id: @student_1_id, student_2_id: @student_2_id)
     end
   end
 

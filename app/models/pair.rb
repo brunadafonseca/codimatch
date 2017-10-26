@@ -3,7 +3,7 @@ class Pair < ApplicationRecord
 
   def self.generate_pairs
     @users = User.all
-    @students = @users.students.pluck(:email)
+    @students = @users.students.pluck(:id)
     @students.shuffle!
 
     number_of_pairs = (@students.size) / 2
@@ -25,4 +25,9 @@ class Pair < ApplicationRecord
     end
     @all_pairs
   end
+
+  scope :student, -> (id) { where(:student_1_id => id)}
+
+  scope :students, -> { where(admin: false) }
+
 end
