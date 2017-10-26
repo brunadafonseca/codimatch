@@ -4,6 +4,9 @@ class Pair < ApplicationRecord
   def self.generate_pairs
     @users = User.all
     @students = @users.students.pluck(:id)
+    if @students.size.odd?
+      @students << ""
+    end
     @students.shuffle!
 
     number_of_pairs = (@students.size) / 2
