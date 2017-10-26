@@ -6,17 +6,12 @@ class PairsController < ApplicationController
   end
 
   def create
-    @pair = Pair.create(date, matches)
-    matches.each |pair|
-    pair = Pair.new
-    pair.day = Date.new
-    pair.student1_id = pair[0]
-    pair.student2_id = pair[1]
-
-    if @pair.save
-      redirect_to pairs_path
-    else
-      render 'new'
+    @matches = Pair.generate_pairs
+    @matches.each do |pair|
+      @pair = Pair.new
+      @pair.day = Date.new
+      @pair.student_1_id = pair[0]
+      @pair.student_2_id = pair[1]
     end
   end
 
