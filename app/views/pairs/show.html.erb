@@ -1,2 +1,9 @@
-<%= @pair.student_1_id %>
-<%= @pair.student_2_id %>
+<%= @email %>
+
+<h1>TEST</h1>
+<% @pairs.each do |pair| %>
+<p>[
+  <%= pair.student_1_id %>
+<%= pair.student_2_id %>
+]</p>
+<% end %>

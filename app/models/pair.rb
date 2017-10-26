@@ -5,7 +5,7 @@ class Pair < ApplicationRecord
     @users = User.all
     @students = @users.students.pluck(:id)
     if @students.size.odd?
-      @students << ""
+        @students = @students << "shitsbroken"
     end
     @students.shuffle!
 
@@ -28,7 +28,6 @@ class Pair < ApplicationRecord
     end
     @all_pairs
   end
-
   scope :student, -> (id) { where(:student_1_id => id)}
 
   scope :students, -> { where(admin: false) }
