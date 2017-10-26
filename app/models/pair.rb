@@ -1,7 +1,7 @@
 class Pair < ApplicationRecord
   has_many :users
 
-  def generate_pairs
+  def self.generate_pairs
     students = User.all.students.pluck(:email)
     number_of_pairs = (students.size) / 2
     number_of_days = (students.size) - 1
@@ -20,5 +20,6 @@ class Pair < ApplicationRecord
       a.insert(1, b.shift)
       b.insert(-1, a.pop);
     end
+    @all_pairs
   end
 end

@@ -9,7 +9,7 @@ class User < ApplicationRecord
      admin?
    end
 
-   def self.pair_students
+   def self.generate_pairs
      students = User.all.students.pluck(:id)
      number_of_pairs = (students.size) / 2
      number_of_days = (students.size) - 1
