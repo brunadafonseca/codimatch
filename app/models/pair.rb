@@ -8,6 +8,9 @@ class Pair < ApplicationRecord
   @test = 1
 
   def self.generate_pairs
+    if @students.size.odd?
+        @students = @students << "shitsbroken"
+    end
 
     number_of_pairs = (@students.size) / 2
     number_of_days = (@students.size) - 1
@@ -29,8 +32,6 @@ class Pair < ApplicationRecord
     @day += 1
     @test += 1
   end
-
-
   scope :student, -> (id) { where(:student_1_id => id)}
 
   scope :students, -> { where(admin: false) }

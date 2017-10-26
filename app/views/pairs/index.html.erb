@@ -1,12 +1,15 @@
 <div class="AllPairs" style="text-align: left;">
-<% @pairs.first(@students.size/2).each do |pair| %>
+  <h1>Today's Pairs</h1>
+</br>
+<% @pairs.each do |pair| %>
 
 <div class="Pair">
   <hr>
 Pair no. <%= @i+=1 %>:
- <%= pair[0] %>,
+ <%= pair[0] %>
  <%= pair[1] %>
-<hr>
 
+<hr>
+ <% break if @i >= (@students.count/2) %>
 <% end %>
 </div>
