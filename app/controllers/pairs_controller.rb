@@ -11,15 +11,15 @@ class PairsController < ApplicationController
     @users = User.all
     @students = @users.students
     @pair = Pair.find(params[:id])
+    @student1 = Pair.student.find(params[:id])
   end
 
   def create
     @matches = Pair.generate_pairs
     @matches.each do |pair|
-      @date = DateTime.new
       @student_1_id = pair[0]
       @student_2_id = pair[1]
-      @pair = Pair.create(date: @date, student_1_id: @student_1_id, student_2_id: @student_2_id)
+      @pair = Pair.create(date: Date.today, student_1_id: @student_1_id, student_2_id: @student_2_id)
     end
   end
 

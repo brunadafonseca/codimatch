@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(current_user[:id])
     @todays_pair = Pair.student(@user.id).pluck(:student_2_id)
+    @email = User.find(@todays_pair).pluck(:email)
   end
 
   def update
