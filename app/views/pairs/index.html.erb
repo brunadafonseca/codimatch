@@ -1,1 +1,12 @@
-<%= @pairs %>
+<div class="AllPairs" style="text-align: left;">
+<% @pairs.first(@students.size/2).each do |pair| %>
+
+<div class="Pair">
+  <hr>
+Pair no. <%= @i+=1 %>:
+ <%= pair[0] %>,
+ <%= pair[1] %>
+<hr>
+
+<% end %>
+</div>
