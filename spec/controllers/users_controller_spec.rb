@@ -14,8 +14,6 @@ RSpec.describe UsersController, type: :controller do
 
   context "without profile" do
     let!(:user) { create(:user) }
-    
-
     it "renders email" do
       expect(response).to have_http_status(:success)
     end
