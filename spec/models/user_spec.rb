@@ -6,8 +6,8 @@ RSpec.describe User, type: :model do
     FactoryGirl.create :user, id: 2, email: "snape@codimatch.com", admin: true
     FactoryGirl.create :user, id: 3, email: "sirius@codimatch.com", admin: false
   end
-  it "returns a sorted array of admins" do
 
-    User.order_users.should == ["dumbledore.codimatch.com", "snape.codimatch.com"]
+  it "returns a sorted array of admins and students" do
+      
   end
 end
