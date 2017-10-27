@@ -9,15 +9,16 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  # describe "GET #show"
-  # it "returns http redirect" do
-  #   get :
-  #   expect(response).to have_http_status(:success)
-  # end
-  describe "login" do
-   it "logs in the user" do
-     visit root_path
-     expect(page).to have_content("log")
-   end
+  describe "shared/_navbar.html.erb" do
+  before { sign_in user }
+
+  context "without profile" do
+    let!(:user) { create(:user) }
+    
+
+    it "renders email" do
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
 end
