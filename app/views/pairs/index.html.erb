@@ -6,12 +6,14 @@
     <br />
   <% end %>
 
+<% if @past_pairs.exists? %>
 <h1>Past pairs</h1>
 <% @past_pairs.each do |pair| %>
   <% pair.emails.each do |email| %>
     <%= email %>
   <% end %>
   <br />
+<% end %>
 <% end %>
 
 <h1>All pairs</h1>

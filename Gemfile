@@ -39,7 +39,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'faker'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
