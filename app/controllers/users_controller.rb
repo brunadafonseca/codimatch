@@ -2,21 +2,22 @@ class UsersController < ApplicationController
    before_action :authenticate_user!
 
   def index
-    @users = User.all
     @user = User.find(current_user[:id])
+    if !@user.is_admin?
+      redirect_to user_path(@user.id)
+    end
+    @users = User.all.order_users
     @pair = Pair.new
   end
 
   def show
     @user = User.find(current_user[:id])
-    @todays_pair = Pair.student(@user.id).pluck(:student_2_id)
-    @email = User.find(@todays_pair).pluck(:email)
+    @pairs = Pair.student(@user.id).today
+    @past_pairs = Pair.student(@user.id).past_days
   end
 
   def update
     @user = User.find(params[:id])
-      @user.toggle!(:admin)
-    redirect_to users_path
+    @user.toggle!(:admin)
   end
-
 end

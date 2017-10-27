@@ -1,13 +1,10 @@
 <%= form_for @pair do |f| %>
-  <p><strong>Please Enter A Date</strong>
-
-  <hr>
+  <p><b>Please Enter A Date</b>
 
   <div class="form-group">
     <label>Date: </label>
     <%= f.date_select :date %>
-
-  <hr>
+  </div>
 
   <div class="actions">
     <%= f.submit "Generate", class: "btn btn-success" %>
