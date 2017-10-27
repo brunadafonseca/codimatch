@@ -1,16 +1,22 @@
 <h3>Hello <%= @user.email %></h3>
 <h1>Your pair today is</h1>
   <% @pairs.each do |pair| %>
-    <% pair.students.each do |email| %>
+    <% pair.emails.each do |email| %>
+      <% if email != current_user.email %>
       <%= email %>
+      <% end %>
     <% end %>
     <br />
   <% end %>
 
   <h1>Past pairs</h1>
   <% @past_pairs.each do |pair| %>
-    <% pair.students.each do |email| %>
-      <%= email %>
+    <%= pair.date %>
+    <br />
+    <% pair.emails.each do |email| %>
+      <% if email != current_user.email %>
+        <%= email %>
+      <% end %>
     <% end %>
   <br />
   <% end %>

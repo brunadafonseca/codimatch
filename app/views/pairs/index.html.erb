@@ -1,6 +1,6 @@
 <h1>Today's pairs:</h1>
   <% @pairs.each do |pair| %>
-    <% pair.students.each do |email| %>
+    <% pair.emails.each do |email| %>
       <%= email %>
     <% end %>
     <br />
@@ -8,8 +8,16 @@
 
 <h1>Past pairs</h1>
 <% @past_pairs.each do |pair| %>
-  <% pair.students.each do |email| %>
+  <% pair.emails.each do |email| %>
     <%= email %>
   <% end %>
   <br />
+<% end %>
+
+<h1>All pairs</h1>
+<% @all_pairs.each do |pair| %>
+<%= pair.date %>
+<br/>
+<%= pair.students %>
+<br/>
 <% end %>

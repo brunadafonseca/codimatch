@@ -25,5 +25,8 @@
       <p><b> Generate Pairs for a specific day</b></p>
       <%= render 'shared/form' %>
     </div>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
   </div>
 </div>
