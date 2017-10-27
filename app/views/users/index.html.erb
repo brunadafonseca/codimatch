@@ -19,14 +19,11 @@
   </div>
   <div class="col-md-12">
   <hr>
-    <%= link_to "Generate Pairs for Today", pairs_path %>
+    <%= link_to "See all pairs", pairs_path %>
     <hr>
     <div class="form">
       <p><b> Generate Pairs for a specific day</b></p>
       <%= render 'shared/form' %>
     </div>
-    <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
   </div>
 </div>

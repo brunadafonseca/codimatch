@@ -30,7 +30,7 @@ class PairsController < ApplicationController
                     pair_params["date(2i)"].to_i,
                     pair_params["date(3i)"].to_i)
     if @taken_days.include?(@day)
-      flash[:notice] = "You already have pairs for this day!"
+      flash[:notice] = "You already created pairs for today!"
     else
       @generated_pairs = GeneratedPair.first.delete
       @generated_pairs.pairs.each do |pair|
