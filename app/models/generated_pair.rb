@@ -1,0 +1,3 @@
+class GeneratedPair < ApplicationRecord
+  
+end

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026131134) do
+ActiveRecord::Schema.define(version: 20171026212245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "generated_pairs", force: :cascade do |t|
+    t.text "pairs", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pairs", force: :cascade do |t|
     t.datetime "created_at", null: false

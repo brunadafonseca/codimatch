@@ -1,42 +1,29 @@
-<a href=# style="color: #000000; text-decoration: none;">CodiMatch</a>
 <div class="w3-container">
+  <div class="list-of-users">
+    <h1>List of users</h1>
     <hr>
-    <div class="ting" style="text-align: center;"><h1>List of users</h1></div>
-        <% @users.each do |user| %>
-  <div class="col-md-6">
-  <%= user.email %>
+    <% @users.each do |user| %>
+      <div class="col-md-6">
+        <%= user.email %>
+      </div>
+      <% if user.is_admin? %>
+        <div class="col-md-4">
+          <b>Admin <%= link_to "Demote", user, method: :patch %></b>
+        </div>
+      <% else %>
+        <div class="col-md-4">
+          <b>Student <%= link_to "Promote", user, method: :patch %></b>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-
-  <% if user.is_admin? %>
-  <div class="col-md-4"><b>Admin <%= link_to "Demote", user, method: :patch%></b></div>
-  <% else %>
-  <div class="col-md-4"><b>Student <%= link_to "Promote", user, method: :patch%></b></div>
-  <% end %>
-  <% end %>
-
-
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</hr>
-<div class="GeneratePairs">
-</hr>
-<%= link_to "Generate Pairs for Today", pairs_path %>
-<hr>
-</div>
-<div class="form">
-    <p><b> Generate Pairs for a specific day</b></p>
-  <%= render 'shared/form' %>
-</div>
-
-
-</div>
+  <div class="col-md-12">
+  <hr>
+    <%= link_to "Generate Pairs for Today", pairs_path %>
+    <hr>
+    <div class="form">
+      <p><b> Generate Pairs for a specific day</b></p>
+      <%= render 'shared/form' %>
+    </div>
+  </div>
 </div>

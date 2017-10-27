@@ -1,15 +1,15 @@
-<div class="AllPairs" style="text-align: left;">
-  <h1>Today's Pairs</h1>
-</br>
-<% @pairs.each do |pair| %>
+<h1>Today's pairs:</h1>
+  <% @pairs.each do |pair| %>
+    <% pair.students.each do |email| %>
+      <%= email %>
+    <% end %>
+    <br />
+  <% end %>
 
-<div class="Pair">
-  <hr>
-Pair no. <%= @i+=1 %>:
- <%= pair[0] %>
- <%= pair[1] %>
-
-<hr>
- <% break if @i >= (@students.count/2) %>
+<h1>Past pairs</h1>
+<% @past_pairs.each do |pair| %>
+  <% pair.students.each do |email| %>
+    <%= email %>
+  <% end %>
+  <br />
 <% end %>
-</div>
