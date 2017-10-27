@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 feature "Pro- and Demoting" do
       let!(:user) { create(:user) }
   scenario "Promote a pleb" do
@@ -6,5 +8,4 @@ feature "Pro- and Demoting" do
 
     expect(page).to have_content("Log In")
   end
-
 end
